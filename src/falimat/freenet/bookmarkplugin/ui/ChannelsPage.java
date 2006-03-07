@@ -22,7 +22,7 @@ import falimat.freenet.webplugin.components.Form;
 import falimat.freenet.webplugin.components.Heading;
 import falimat.freenet.webplugin.components.LabeledTextField;
 import falimat.freenet.webplugin.components.SubmitButton;
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 public class ChannelsPage extends HtmlPage {
     final BeanTable channelsTable = new BeanTable();
@@ -54,7 +54,7 @@ public class ChannelsPage extends HtmlPage {
         this.addChannelButton.setAction(new FormAction(this.form) {
 
             @Override
-            protected void onSubmit(PluginHTTPRequest request) {
+            protected void onSubmit(HTTPRequest request) {
                 try {
                     String channelUri = addChannelUri.getValue();
                     Channel channel = new Channel();
@@ -84,7 +84,7 @@ public class ChannelsPage extends HtmlPage {
             }
 
             @Override
-            protected void onInvalidSubmission(PluginHTTPRequest request) {
+            protected void onInvalidSubmission(HTTPRequest request) {
                 // TODO Auto-generated method stub
 
             }
@@ -162,7 +162,7 @@ public class ChannelsPage extends HtmlPage {
         submitButton.setAction(new FormAction(this.channelSettingsForm) {
 
             @Override
-            protected void onSubmit(PluginHTTPRequest request) {
+            protected void onSubmit(HTTPRequest request) {
                 User user = LoginCredentials.instance().getCurrentUser();
                 if (user==null) {
                     insertIntervalField.showValidationMessage("You must be logged in to change publish preferences");
@@ -182,7 +182,7 @@ public class ChannelsPage extends HtmlPage {
             }
 
             @Override
-            protected void onInvalidSubmission(PluginHTTPRequest request) {
+            protected void onInvalidSubmission(HTTPRequest request) {
                 // TODO Auto-generated method stub
                 
             }

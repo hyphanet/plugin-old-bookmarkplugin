@@ -10,7 +10,7 @@ import falimat.freenet.webplugin.HtmlPage;
 import falimat.freenet.webplugin.HtmlWriter;
 import falimat.freenet.webplugin.SimpleAction;
 import falimat.freenet.webplugin.components.ActionButton;
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 public class LoginMessage extends AbstractHtmlComponent implements ActionComponent {
     ActionButton logoutButton = new ActionButton("x", "Logout");
@@ -20,7 +20,7 @@ public class LoginMessage extends AbstractHtmlComponent implements ActionCompone
         logoutButton.setAction(new SimpleAction() {
     
             @Override
-            public void execute(PluginHTTPRequest request) {
+            public void execute(HTTPRequest request) {
                 LoginCredentials.instance().logout();
                 addBookmarkPage.onLogout();
             }

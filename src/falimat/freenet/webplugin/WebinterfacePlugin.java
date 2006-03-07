@@ -6,21 +6,16 @@ import java.net.URISyntaxException;
 import freenet.pluginmanager.FredPlugin;
 import freenet.pluginmanager.FredPluginHTTP;
 import freenet.pluginmanager.PluginHTTPException;
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 import freenet.pluginmanager.PluginRespirator;
 
 public abstract class WebinterfacePlugin implements FredPlugin, FredPluginHTTP {
 
     private HtmlPage rootPage;
 
-    public String handleHTTPGet(String path) throws PluginHTTPException {
-        PluginHTTPRequest request;
+    public String handleHTTPGet(HTTPRequest request) throws PluginHTTPException {
 
-        try {
-            request = new PluginHTTPRequest(path);
-        } catch (URISyntaxException e) {
-            throw new PluginHTTPException(501, "text/plain", "ERROR", e.getMessage());
-        }
+        String path = request.getPath();
 
         if (path.endsWith("css")) {
             try {
@@ -30,10 +25,8 @@ public abstract class WebinterfacePlugin implements FredPlugin, FredPluginHTTP {
             }
         }
 
-        // TODO: put this in PluginHTTPRequest ?
-        if (path.contains("?")) {
-            path = path.substring(0, path.indexOf("?"));
-        }
+        // TODO: put this in HTTPRequest ?
+
         if (path.startsWith("/")) {
             path = path.substring(1);
         }
@@ -48,7 +41,7 @@ public abstract class WebinterfacePlugin implements FredPlugin, FredPluginHTTP {
             try {
                 pageToBeRendered = this.rootPage.getSubPage(path);
             } catch (PageNotFoundException e) {
-                pageToBeRendered = new ErrorPage("404 - Page Not Found: " + path, e);
+                pageToBeRendered = new ErrorPage("404 - Page Not Found: " + request, e);
             }
         }
 
@@ -76,11 +69,11 @@ public abstract class WebinterfacePlugin implements FredPlugin, FredPluginHTTP {
         return stringWriter.toString();
     }
 
-    public String handleHTTPPut(String path) throws PluginHTTPException {
+    public String handleHTTPPut(HTTPRequest request) throws PluginHTTPException {
         return this.renderPage(new ErrorPage("HTTP PUT is not supported by this plugin.", null));
     }
 
-    public String handleHTTPPost(String path) throws PluginHTTPException {
+    public String handleHTTPPost(HTTPRequest request) throws PluginHTTPException {
         return this.renderPage(new ErrorPage("HTTP POST is not supported by this plugin.", null));
     }
 

@@ -3,7 +3,7 @@ package falimat.freenet.webplugin.components;
 import falimat.freenet.webplugin.FormComponent;
 import falimat.freenet.webplugin.HtmlPage;
 import falimat.freenet.webplugin.HtmlWriter;
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 public class LabeledDropdown extends AbstractFormComponent implements FormComponent {
 
@@ -24,7 +24,7 @@ public class LabeledDropdown extends AbstractFormComponent implements FormCompon
     }
 
     @Override
-    public void setValueFromRequest(PluginHTTPRequest request) {
+    public void setValueFromRequest(HTTPRequest request) {
         try {
             int index = request.getIntParam(this.name, -1);
             if (index >= 0) {

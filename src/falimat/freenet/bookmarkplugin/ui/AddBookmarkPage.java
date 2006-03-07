@@ -27,7 +27,7 @@ import freenet.client.FetchResult;
 import freenet.client.HighLevelSimpleClient;
 import freenet.crypt.Yarrow;
 import freenet.keys.FreenetURI;
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 public class AddBookmarkPage extends HtmlPage {
     /**
@@ -81,7 +81,7 @@ public class AddBookmarkPage extends HtmlPage {
         this.checkButton = new SubmitButton("Create");
         this.checkButton.setAction(new FormAction(this.addBookmarkForm) {
             @Override
-            protected void onSubmit(PluginHTTPRequest request) {
+            protected void onSubmit(HTTPRequest request) {
                 messageArea.hide();
                 try {
                     bookmark = createBookmark(uriTextField.getValue());
@@ -99,7 +99,7 @@ public class AddBookmarkPage extends HtmlPage {
             }
 
             @Override
-            protected void onInvalidSubmission(PluginHTTPRequest request) {
+            protected void onInvalidSubmission(HTTPRequest request) {
                 messageArea.hide();
                 editor.setBookmark(null);
             }
@@ -121,7 +121,7 @@ public class AddBookmarkPage extends HtmlPage {
         newAccountButton.setAction(new SimpleAction() {
 
             @Override
-            public void execute(PluginHTTPRequest request) {
+            public void execute(HTTPRequest request) {
                 LoginCredentials.instance().logout();
                 addBookmarkForm.hide();       
                 loginForm.hide();
@@ -175,7 +175,7 @@ public class AddBookmarkPage extends HtmlPage {
             submitButton.setAction(new FormAction(this) {
 
                 @Override
-                protected void onSubmit(PluginHTTPRequest request) {
+                protected void onSubmit(HTTPRequest request) {
                     
                    String userName = nickTextField.getValue();
                    
@@ -202,7 +202,7 @@ public class AddBookmarkPage extends HtmlPage {
                 }
 
                 @Override
-                protected void onInvalidSubmission(PluginHTTPRequest request) {
+                protected void onInvalidSubmission(HTTPRequest request) {
                     // TODO Auto-generated method stub
                     
                 }
@@ -214,7 +214,7 @@ public class AddBookmarkPage extends HtmlPage {
             cancelButton.setAction(new FormAction(this, false) {
 
                 @Override
-                protected void onSubmit(PluginHTTPRequest request) {
+                protected void onSubmit(HTTPRequest request) {
                    NewUserForm.this.resetFormValues();
                    NewUserForm.this.hide();
                    loginForm.resetFormValues();
@@ -222,7 +222,7 @@ public class AddBookmarkPage extends HtmlPage {
                 }
 
                 @Override
-                protected void onInvalidSubmission(PluginHTTPRequest request) {
+                protected void onInvalidSubmission(HTTPRequest request) {
                     this.onSubmit(request);
                 }
                 
@@ -260,7 +260,7 @@ public class AddBookmarkPage extends HtmlPage {
             loginButton.setAction(new FormAction(this) {
 
                 @Override
-                protected void onSubmit(PluginHTTPRequest request) {
+                protected void onSubmit(HTTPRequest request) {
                     try {
                         LoginCredentials.instance().login(publicKeyField.getValue(), privateKeyField.getValue());
                         LoginForm.this.hide();
@@ -273,7 +273,7 @@ public class AddBookmarkPage extends HtmlPage {
                 }
 
                 @Override
-                protected void onInvalidSubmission(PluginHTTPRequest request) {
+                protected void onInvalidSubmission(HTTPRequest request) {
                     LoginCredentials.instance().logout();
                     resetLoginForm();
                 }

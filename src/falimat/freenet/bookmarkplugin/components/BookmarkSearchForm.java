@@ -12,7 +12,7 @@ import falimat.freenet.webplugin.components.Heading;
 import falimat.freenet.webplugin.components.LabeledDropdown;
 import falimat.freenet.webplugin.components.LabeledTextField;
 import falimat.freenet.webplugin.components.SubmitButton;
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 public class BookmarkSearchForm extends Form {
 
@@ -45,7 +45,7 @@ public class BookmarkSearchForm extends Form {
         this.searchButton.setAction(new FormAction(this) {
 
             @Override
-            protected void onSubmit(PluginHTTPRequest request) {
+            protected void onSubmit(HTTPRequest request) {
                 String text = textQueryField.getValue();
                 Set<String> tags = BookmarkEditor.tagsAsSet(tagQueryField.getValue());
                 String contentType = contentTypeDropdown.getValue();
@@ -56,7 +56,7 @@ public class BookmarkSearchForm extends Form {
             }
 
             @Override
-            protected void onInvalidSubmission(PluginHTTPRequest request) {
+            protected void onInvalidSubmission(HTTPRequest request) {
                 // TODO Auto-generated method stub
 
             }

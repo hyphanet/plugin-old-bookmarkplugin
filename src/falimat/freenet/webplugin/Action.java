@@ -1,9 +1,9 @@
 package falimat.freenet.webplugin;
 
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 
 public interface Action {
     String getId();
-    void execute(PluginHTTPRequest request);
+    void execute(HTTPRequest request);
 }

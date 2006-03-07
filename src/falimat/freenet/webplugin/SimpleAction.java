@@ -1,6 +1,6 @@
 package falimat.freenet.webplugin;
 
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 
 public abstract class SimpleAction implements Action {
@@ -24,6 +24,6 @@ public abstract class SimpleAction implements Action {
         return this.id;
     }
 
-    public abstract void execute(PluginHTTPRequest request);
+    public abstract void execute(HTTPRequest request);
 
 }

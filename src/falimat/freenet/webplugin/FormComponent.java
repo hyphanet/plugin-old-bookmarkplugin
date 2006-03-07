@@ -1,11 +1,11 @@
 package falimat.freenet.webplugin;
 
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 public interface FormComponent {
-    void setValueFromRequest(PluginHTTPRequest request);
+    void setValueFromRequest(HTTPRequest request);
 
-    boolean validate(PluginHTTPRequest request);
+    boolean validate(HTTPRequest request);
 
     void reset();
 }

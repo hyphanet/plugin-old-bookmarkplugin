@@ -24,7 +24,7 @@ import falimat.freenet.webplugin.components.LabeledDropdown;
 import falimat.freenet.webplugin.components.LabeledTextArea;
 import falimat.freenet.webplugin.components.LabeledTextField;
 import falimat.freenet.webplugin.components.SubmitButton;
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 public class BookmarkEditor extends AbstractHtmlComponent implements ActionComponent {
 
@@ -88,7 +88,7 @@ public class BookmarkEditor extends AbstractHtmlComponent implements ActionCompo
         this.saveButton.setAction(new FormAction(this.form) {
 
             @Override
-            protected void onSubmit(PluginHTTPRequest request) {
+            protected void onSubmit(HTTPRequest request) {
                 bookmark.setTitle(titleField.getValue());
                 bookmark.setDescription(descriptionArea.getValue());
                 bookmark.setRating(request.getIntParam(ratingDropdown.getName(), -1));
@@ -101,7 +101,7 @@ public class BookmarkEditor extends AbstractHtmlComponent implements ActionCompo
             }
 
             @Override
-            protected void onInvalidSubmission(PluginHTTPRequest request) {
+            protected void onInvalidSubmission(HTTPRequest request) {
 
             }
 

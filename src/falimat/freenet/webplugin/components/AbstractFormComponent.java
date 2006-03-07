@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import falimat.freenet.webplugin.AbstractHtmlComponent;
 import falimat.freenet.webplugin.HtmlPage;
 import falimat.freenet.webplugin.HtmlWriter;
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 public abstract class AbstractFormComponent extends AbstractHtmlComponent {
 
@@ -40,11 +40,11 @@ public abstract class AbstractFormComponent extends AbstractHtmlComponent {
         this.value = value;
     }
 
-    public void setValueFromRequest(PluginHTTPRequest request) {
+    public void setValueFromRequest(HTTPRequest request) {
         this.value = request.getParam(this.name).trim();
     }
 
-    public boolean validate(PluginHTTPRequest request) {
+    public boolean validate(HTTPRequest request) {
         String newValue = this.value;
         if (newValue.length() == 0) {
             if (this.required) {

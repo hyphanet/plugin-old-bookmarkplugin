@@ -1,7 +1,7 @@
 package falimat.freenet.webplugin;
 
 import falimat.freenet.webplugin.components.Form;
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 public abstract class FormAction extends SimpleAction {
 
@@ -19,15 +19,15 @@ public abstract class FormAction extends SimpleAction {
     }
 
     @Override
-    public void execute(PluginHTTPRequest request) {
+    public void execute(HTTPRequest request) {
         boolean validationSuccesfull = validateBeforeExecution ? this.form.validate(request) : true;
         if (validationSuccesfull) {
             this.onSubmit(request);
         }
     }
     
-    protected abstract void onSubmit(PluginHTTPRequest request);
+    protected abstract void onSubmit(HTTPRequest request);
     
-    protected abstract void onInvalidSubmission(PluginHTTPRequest request);
+    protected abstract void onInvalidSubmission(HTTPRequest request);
 
 }

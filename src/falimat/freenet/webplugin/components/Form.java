@@ -10,7 +10,7 @@ import falimat.freenet.webplugin.FormComponent;
 import falimat.freenet.webplugin.HtmlComponent;
 import falimat.freenet.webplugin.HtmlPage;
 import falimat.freenet.webplugin.HtmlWriter;
-import freenet.pluginmanager.PluginHTTPRequest;
+import freenet.pluginmanager.HTTPRequest;
 
 public class Form extends AbstractHtmlComponent implements ActionComponent {
 
@@ -67,7 +67,7 @@ public class Form extends AbstractHtmlComponent implements ActionComponent {
         this.action = action;
     }
 
-    public boolean validate(PluginHTTPRequest request) {
+    public boolean validate(HTTPRequest request) {
         for (HtmlComponent component : this.components) {
             if (component instanceof FormComponent) {
                 ((FormComponent) component).setValueFromRequest(request);
