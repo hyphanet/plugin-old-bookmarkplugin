@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project >
+
+<project basedir="." default="dist" name="freenet-bookmarks">
+
+	<!-- this property must point to a directory with a recent freenet-cvs-snapshot.ar and freenet-ext.jar -->
+	<property name="freenet-lib" value="../../projects/freenet-svn/lib" />
+
+	<property name="dist" value="./dist" />
+	<property name="build" value="./build" />
+	<property name="src" value="./src" />
+	<property name="lib" value="./lib" />
+	<property name="temp" value="./temp" />
+
+	<target name="clean" >
+		<delete includeemptydirs="false" >
+			<fileset dir="${dist}" />
+			<fileset dir="${build}" />
+		</delete>
+	</target>
+
+	<target name="build" >
+		<mkdir dir="${build}" />
+		<javac srcdir="${src}" destdir="${build}" debug="true" target="1.5" optimize="false">
+			<classpath>
+				<fileset dir="${lib}" />
+				<fileset dir="${freenet-lib}" />
+			</classpath>
+		</javac>
+		<copy todir="${build}">
+			<fileset dir="${src}" >
+				<include name="**/*.css"/>
+				<include name="**/*.properties"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="dist" depends="build">
+		<mkdir dir="${temp}" />
+		<unjar dest="${temp}">
+			<fileset dir="${lib}">
+
+			</fileset>
+		</unjar>
+		<!-- TODO: Include licenses in combined jar! -->
+		<copy todir="${temp}">
+			<fileset dir="${build}" />
+		</copy>
+		<mkdir dir="${dist}" />
+		<jar destfile="${dist}/freenet-bookmarkplugin.jar" compress="true">
+			<fileset dir="${temp}" />
+		</jar>
+		<delete dir="${temp}" />
+	</target>
+
+</project>
+
+
+

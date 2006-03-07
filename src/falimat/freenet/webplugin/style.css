@@ -1,0 +1,222 @@
+body {
+	font-family: sans-serif;
+	background-color: white;
+	margin: 0px 0px 0px 9.5em;
+	padding: 0em;
+}
+
+.sidebar {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 0.5em;
+	width: 8em;
+	background-color: #222222;
+}
+
+h1 {
+	text-align: right;
+	margin: 0px 30px 0.1em 0px;
+	padding: 0px;
+	border-bottom: 2px solid black;
+}
+
+h2 {
+	border-bottom: 2px solid black;
+	margin: 0.2em 0em 0.5em 15px;
+	font-size: 1.2em;
+}
+
+.sidebar a {
+	color: white;
+}
+
+.nav {
+	font-size: 0.9em;
+	color: white;
+}
+
+.nav ul {
+	list-style-type: circle;
+	padding: 0em 0em 0em 0.8em;
+	margin: 0em;
+	list-style-position: outside;
+}
+
+ul.results {
+	padding: 0em 0em 0em 0.3em;
+	list-style-type: none;
+}
+
+ul.results li {
+	margin: 0em 0em 0.5em 0em;
+	padding: 0.2em;
+	border-bottom: 1px solid gray;
+}
+
+.teaser h3 {
+	font-size: 1em;
+	margin: 0px;
+	border-bottom: 1px solid black;
+}
+
+.teaser h4 {
+	font-size: 0.8em;
+	margin: 0em 0em 0em 1em;
+}
+
+.teaser .metadata {
+	font-family: Lucida Console, monospace;
+	font-size: 0.7em;
+}
+
+.metadata .rating {
+	display: none;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.metadata .tag {
+	font-weight: bold;
+	background-color: black;
+	color: white;
+	padding: 0em 0.2em 0em 0.2em;
+	margin-left: 0.3em;
+}
+
+.metadata .attributes {
+	float: right;
+	margin-left: 1em;
+	text-align: right;
+}
+
+p.description {
+	font-size: small;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+}
+
+.button {
+	margin-top: 0.2em;
+	padding: 0.1em;
+}
+
+.button a:link,.button a:visited,.button a:active,.button a:link {
+	padding: 0.1em;
+}
+
+.button a:hover {
+	
+}
+
+.nick {
+	font-weight: bold;
+	font-style: italic;
+	margin-left: 1em;
+	margin-right: 0.5em;
+}
+
+.freenet_link {
+	color: #aa0000;
+	font-size: smaller;
+	padding-bottom: 0.2em;
+}
+
+.freenet_link a {
+	text-decoration: none;
+	color: #aa0000;
+}
+
+.freenet_link a:visited {
+	color: #aa0000;
+}
+
+.freenet_link a:hover {
+	text-decoration: underline;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+table {
+	border: 1px solid gray;
+
+}
+
+table td {
+	border: 1px solid #cccccc;
+	margin: 0px;
+}
+
+dl {
+	font-size: small;
+}
+
+dt {
+	font-weight: bold;
+}
+
+form {
+	border: 1px solid gray;
+	padding: 0.3em;
+}
+
+input,textarea,select {
+	display: block;
+	width: 100%;
+	font-family: Tahoma, sans-serif;
+}
+
+input.submit,.button a {
+	background-color: #555555;
+	color: white;
+	border: 2px solid gray;
+}
+
+input.submit:hover,.button a:hover {
+	background-color: #333333;
+	color: white;
+	border: 2px outset gray;
+}
+
+.invalid {
+	font-size: small;
+	color: #aa0000;
+}
+
+.message_area {
+	background-color: white;
+}
+
+.headline {
+	font-weight: bold;
+	border-bottom: 1px solid #aa0000;
+}
+
+.message {
+	
+}
+
+.login_message {
+	background-color: #222222;
+	color: white;
+	font-size: 0.8em;
+	position: fixed;
+	padding: 0.2em;
+	left: 0px;
+	bottom: 0px;
+	width: 11.05em;
+}
+
+.login_message .button {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.login_message .button a {
+	
+}
