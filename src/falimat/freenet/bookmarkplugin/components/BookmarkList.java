@@ -16,7 +16,7 @@ import falimat.freenet.webplugin.HtmlWriter;
 
 public class BookmarkList extends AbstractHtmlComponent {
 
-    public final static String FREENET_LINK_WARNING = "WARNING: This is a link to freenet content. Follow it on your own risk.";
+    public final static String FREENET_LINK_WARNING = "WARNING: This is a link to Freenet content. Follow it on your own risk.";
 
     private String title = "Search results";
 
