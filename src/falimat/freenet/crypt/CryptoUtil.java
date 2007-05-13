@@ -81,7 +81,7 @@ public class CryptoUtil {
     
             return clientSSK;
         } catch (RuntimeException e) {
-            String msg = "The private ssk does not seem to be a valid freenet insert URI";
+            String msg = "The private SSK does not seem to be a valid Freenet insert URI";
             throw new ParamRuntimeException(msg);
         }
     }
