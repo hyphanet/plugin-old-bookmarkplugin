@@ -74,7 +74,7 @@ public class AddBookmarkPage extends HtmlPage {
 
         this.uriTextField = new LabeledTextField("uri", "Enter URI to bookmark");
         this.uriTextField.setRequired(true);
-        this.uriTextField.setValidation("This is not a valid freenet URI", RegExes.FREENET_URI);
+        this.uriTextField.setValidation("This is not a valid Freenet URI", RegExes.FREENET_URI);
 
         this.addBookmarkForm.addComponent(this.uriTextField);
 
@@ -248,12 +248,12 @@ public class AddBookmarkPage extends HtmlPage {
 
             publicKeyField = new LabeledTextField("publicKey", "Please enter your public key...");
             publicKeyField.setRequired(true);
-            publicKeyField.setValidation("This is not a valid freenet SSK", RegExes.SSK_KEY);
+            publicKeyField.setValidation("This is not a valid Freenet SSK", RegExes.SSK_KEY);
             this.addComponent(publicKeyField);
 
             privateKeyField = new LabeledTextField("privateKey", "...and your private key");
             privateKeyField.setRequired(true);
-            privateKeyField.setValidation("This is not a valid freenet SSK", RegExes.SSK_KEY);
+            privateKeyField.setValidation("This is not a valid Freenet SSK", RegExes.SSK_KEY);
             this.addComponent(privateKeyField);
 
             SubmitButton loginButton = new SubmitButton("Login");
